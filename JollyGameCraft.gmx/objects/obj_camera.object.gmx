@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>
-x = round(lerp(x, obj_camera_controller.x, 0.05));
-y = round(lerp(y, obj_camera_controller.y, 0.05));
+x = round(lerp(x, obj_camera_controller.x, 0.1));
+y = round(lerp(y, obj_camera_controller.y, 0.1));
 </string>
           </argument>
         </arguments>

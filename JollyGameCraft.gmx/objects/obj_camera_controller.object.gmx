@@ -27,10 +27,10 @@
             <kind>1</kind>
             <string>/// Set position
 
-max_dist = 10;
+max_dist = 100;
 
 x = obj_ship_hull.x + lengthdir_x(max_dist,obj_ship_hull.direction);
-y = obj_ship_hull.y + lengthdir_y(max_dist/1.5,obj_ship_hull.direction);
+y = obj_ship_hull.y + lengthdir_y(max_dist/1.5,obj_ship_hull.direction)-20;
 
 </string>
           </argument>
