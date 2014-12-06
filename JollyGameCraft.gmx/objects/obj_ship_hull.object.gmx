@@ -36,6 +36,10 @@ hp_max = 100;
 healthBarActive = false;
 died = false;
 
+sail_taut = 0.5;
+intoTheWind = 0;
+withTheWind = 0;
+
 ship_station_wheel = true;
 ship_station_sail = true;
 ship_station_crowsnest = true;
@@ -47,6 +51,8 @@ yAxis = 0;
 magnitude = 0;
 speedX = 5;
 speedY = 3;
+speedX_max = 5;
+speedY_max = 3;
 </string>
           </argument>
         </arguments>
@@ -93,6 +99,46 @@ speedY = 3;
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_zDepthCorrection</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -199,41 +245,46 @@ if (gamepad_is_supported()
       </action>
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>scr_zDepthCorrection</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
+            <kind>1</kind>
+            <string>/// Wind &amp; Sails
+
+intoTheWind = direction - obj_wind.direction;
+withTheWind = direction - obj_wind.direction;
+
+if (intoTheWind &lt; 0) intoTheWind += 360;
+if (withTheWind &lt; 0) withTheWind += 360;
+
+//if (intoTheWind &lt;= 5){
+//}
+
+if gamepad_button_check(0, gp_shoulderr){
+    if (sail_taut &gt;= 1) sail_taut = 1;
+    if (sail_taut &lt;= 0) sail_taut = 0;
+    sail_taut += .1;    
+    speedX = abs(speedX_max * sail_taut);
+    speedY = abs(speedY_max * sail_taut);
+}
+if gamepad_button_check(0, gp_shoulderrb){
+    if (sail_taut &gt;= 1) sail_taut = 1;
+    if (sail_taut &lt;= 0) sail_taut = 0;
+    sail_taut -= .1;    
+    speedX = abs(speedX_max * sail_taut);
+    speedY = abs(speedY_max * sail_taut);
+}
+</string>
           </argument>
         </arguments>
       </action>

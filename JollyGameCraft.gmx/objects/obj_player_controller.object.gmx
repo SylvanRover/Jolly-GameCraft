@@ -51,10 +51,11 @@ settingsOpen = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Create Camera
+            <string>/// Create Camera &amp; Wind
 
 instance_create(obj_ship_hull.x, obj_ship_hull.y,obj_camera);
 instance_create(obj_ship_hull.x, obj_ship_hull.y,obj_camera_controller);
+instance_create(obj_ship_hull.x, obj_ship_hull.y,obj_wind);
 </string>
           </argument>
         </arguments>

@@ -35,6 +35,7 @@
     <objects name="Environment">
       <object>objects\obj_rocks</object>
       <object>objects\par_Env</object>
+      <object>objects\obj_wind</object>
     </objects>
     <objects name="GUI">
       <object>objects\obj_gui_settings</object>
