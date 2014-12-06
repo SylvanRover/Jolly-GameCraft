@@ -190,8 +190,12 @@ if (gamepad_is_supported()
     axis_v = gamepad_axis_value(0, gp_axislv)
     dist = point_distance(0, 0, axis_h, axis_v);
     
-    // Direction 
     if dist &gt; 0.18{
+        direction -= gamepad_axis_value(0,gp_axislh) * 5;
+    }
+    
+    // Direction 
+    /*if dist &gt; 0.18{
         x += gamepad_axis_value(0,gp_axislh) * speedX;
         y += gamepad_axis_value(0,gp_axislv) * speedY;
      
@@ -220,7 +224,7 @@ if (gamepad_is_supported()
      
         direction = point_direction(0, 0, gamepad_axis_value(0, gp_axisrh), gamepad_axis_value(0, gp_axisrv));
         direction = direction mod 360;
-    }
+    }*/
     
     //Sprite Directions
     d = (direction + 22.5) div 45;
