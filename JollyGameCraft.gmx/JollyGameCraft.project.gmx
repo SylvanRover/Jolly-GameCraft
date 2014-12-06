@@ -17,12 +17,13 @@
       <sprite>sprites\spr_ship_hull_180</sprite>
       <sprite>sprites\spr_ship_hull_225</sprite>
     </sprites>
+    <sprite>sprites\spr_camera</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_zDepth.gml</script>
-    <script>scripts\scr_depthCorrection.gml</script>
+    <script>scripts\scr_zDepthCorrection.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_camera</object>
@@ -33,6 +34,7 @@
     </objects>
     <objects name="Environment">
       <object>objects\obj_rocks</object>
+      <object>objects\par_Env</object>
     </objects>
     <objects name="GUI">
       <object>objects\obj_gui_settings</object>
