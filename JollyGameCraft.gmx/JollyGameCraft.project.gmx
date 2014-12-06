@@ -13,13 +13,30 @@
       <sprite>sprites\spr_ship_hull_0</sprite>
       <sprite>sprites\spr_ship_hull_315</sprite>
       <sprite>sprites\spr_ship_hull_270</sprite>
+      <sprite>sprites\spr_ship_hull_135</sprite>
+      <sprite>sprites\spr_ship_hull_180</sprite>
+      <sprite>sprites\spr_ship_hull_225</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_zDepth.gml</script>
+    <script>scripts\scr_depthCorrection.gml</script>
+  </scripts>
   <objects name="objects">
-    <object>objects\obj_ship_hull</object>
-    <object>objects\obj_rocks</object>
+    <object>objects\obj_camera</object>
+    <object>objects\obj_camera_controller</object>
+    <objects name="Player">
+      <object>objects\obj_ship_hull</object>
+      <object>objects\obj_player_controller</object>
+    </objects>
+    <objects name="Environment">
+      <object>objects\obj_rocks</object>
+    </objects>
+    <objects name="GUI">
+      <object>objects\obj_gui_settings</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_001</room>
